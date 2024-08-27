@@ -1,0 +1,1 @@
+Nginx se ha desplegado correctamente. Puedes acceder a la aplicación a través de http://IP:{{ .Values.service.port }}

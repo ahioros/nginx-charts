@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancer-{{ include "nginx-chart.fullname" . }}
+  namespace: {{ .Values.namespace }}
+spec:
+  ports:
+    - port: 80
+      targetPort: {{ .Values.service.port }}
+      protocol: TCP
+  type: LoadBalancer
+  selector:
+    app: {{- include "nginx-chart.selectorLabels" . | nindent 4 }}
